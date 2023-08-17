@@ -17,14 +17,8 @@ public class Book {
     }
 
     public Book(Integer edition, Integer numberOfPages, String name, String authors, String publisher, String isbn, BookGender gender, BookStatus status) {
-        this.edition = edition;
-        this.numberOfPages = numberOfPages;
-        this.name = name;
-        this.authors = authors;
-        this.publisher = publisher;
-        this.isbn = isbn;
-        this.gender = gender;
-        this.status = status;
+        //chamada ao construtor de baixo
+        this(null, edition, numberOfPages, name, authors, publisher, isbn, gender, status);
     }
 
     public Book(Integer id, Integer edition, Integer numberOfPages, String name, String authors, String publisher, String isbn, BookGender gender, BookStatus status) {

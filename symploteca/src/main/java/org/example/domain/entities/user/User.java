@@ -15,9 +15,8 @@ public abstract class User {
     }
 
     public User(String name, String email, String phone) {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
+        //chamada ao construtor de baixo
+        this(null, 0, name, email, phone);
     }
 
     public User(String institutionalId, Integer numberOfBooksCheckedOut, String name, String email, String phone) {
