@@ -13,13 +13,11 @@ public class FindBookUseCase {
         this.bookDAO = bookDAO;
     }
 
-    //verifica se o id do livro é null, se for é levantada uma exceção
     public Optional<Book> findOne(Integer id) {
         if (id == null) throw new IllegalArgumentException("ID can not be null.");
         return bookDAO.findOne(id);
     }
 
-    //verifica se o isbn é null ou vazio, se for levanta uma exceção
     public Optional<Book> findOneByIsbn(String isbn){
         if(Validator.nullOrEmpty(isbn)) throw new IllegalArgumentException("ESBN can not be null or empty.");
         return bookDAO.findByIsbn(isbn);

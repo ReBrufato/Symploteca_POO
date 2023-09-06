@@ -4,6 +4,7 @@ import org.example.domain.entities.book.Book;
 import org.example.domain.usecases.utils.EntityAlreadyExistsException;
 import org.example.domain.usecases.utils.EntityNotFoundException;
 import org.example.domain.usecases.utils.Notification;
+import org.example.domain.usecases.utils.Validator;
 
 public class UpdateBookUseCase {
     private BookDAO bookDAO;
@@ -13,8 +14,8 @@ public class UpdateBookUseCase {
     }
 
     public Boolean update(Book book){
-        BookInputRequestValidator bookvalidator = new BookInputRequestValidator();
-        Notification notification = bookvalidator.validate(book);
+        Validator<Book> validator = new BookInputRequestValidator();
+        Notification notification = validator.validate(book);
 
         if(notification.hasError()) throw new IllegalArgumentException(notification.errorMessage());
 
